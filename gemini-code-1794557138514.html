@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Up — IT и Видеонаблюдение в Ангрене</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.remove('hidden'));
+            localStorage.setItem('stepup_lang', lang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-600/30');
+                btn.classList.add('text-slate-400', 'hover:text-white');
+            });
+            document.getElementById(`btn-${lang}`).classList.remove('text-slate-400', 'hover:text-white');
+            document.getElementById(`btn-${lang}`).classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-600/30');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('stepup_lang') || 'ru';
+            setLanguage(savedLang);
+        });
+    </script>
+</head>
+<body class="bg-[#090D16] text-slate-100 antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden">
+
+    <!-- Header с вашим фирменным стилем логотипа -->
+    <header class="sticky top-0 z-50 bg-[#090D16]/90 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Логотип компании Step Up -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#0b1b3d] to-[#1e3a8a] border border-blue-500/30 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:border-blue-400 transition">
+                    <!-- Графический значок ступенек 'S' -->
+                    <div class="relative w-6 h-6 flex flex-col justify-between">
+                        <div class="w-full h-1.5 bg-blue-400 rounded-sm transform -skew-x-12"></div>
+                        <div class="w-3.5 h-1.5 bg-emerald-400 rounded-sm self-center transform -skew-x-12"></div>
+                        <div class="w-full h-1.5 bg-blue-500 rounded-sm transform -skew-x-12"></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="block font-extrabold text-xl tracking-tight text-white flex items-center">
+                        Step <span class="text-blue-500 ml-1">UP</span>
+                    </span>
+                    <span class="text-[9px] tracking-widest uppercase text-slate-400 font-semibold">IT & Security Team</span>
+                </div>
+            </a>
+
+            <!-- Navigation & Lang Switcher -->
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#services" class="hover:text-blue-400 transition" data-lang="ru">Услуги</a>
+                    <a href="#services" class="hover:text-blue-400 transition hidden" data-lang="uz">Xizmatlar</a>
+                    
+                    <a href="#for-whom" class="hover:text-blue-400 transition" data-lang="ru">Для кого</a>
+                    <a href="#for-whom" class="hover:text-blue-400 transition hidden" data-lang="uz">Kimlar uchun</a>
+                    
+                    <a href="#advantages" class="hover:text-blue-400 transition" data-lang="ru">Почему мы</a>
+                    <a href="#advantages" class="hover:text-blue-400 transition hidden" data-lang="uz">Afzalliklarimiz</a>
+                    
+                    <a href="#contacts" class="hover:text-blue-400 transition" data-lang="ru">Контакты</a>
+                    <a href="#contacts" class="hover:text-blue-400 transition hidden" data-lang="uz">Aloqa</a>
+                </nav>
+
+                <!-- Lang Toggle -->
+                <div class="flex bg-slate-900/90 p-1 rounded-xl border border-slate-800">
+                    <button id="btn-ru" onclick="setLanguage('ru')" class="lang-btn px-3 py-1.5 text-xs font-bold rounded-lg transition">RU</button>
+                    <button id="btn-uz" onclick="setLanguage('uz')" class="lang-btn px-3 py-1.5 text-xs font-bold rounded-lg transition">UZ</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-24 lg:py-36 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
+            
+            <!-- RU -->
+            <div data-lang="ru">
+                <div class="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full text-blue-400 text-sm font-semibold mb-8 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Ваш надежный IT-помощник в Ангрене</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
+                    Решаем любые вопросы с <br><span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent">компьютерами и безопасностью</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Помогаем дома и в офисе: настраиваем интернет, ремонтируем технику, ставим камеры видеонаблюдения с просмотром с телефона. Быстро, понятно и с гарантией.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contacts" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-600/25 transition duration-200 text-center">
+                        Вызвать мастера / Задать вопрос
+                    </a>
+                    <a href="#services" class="bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-200 font-bold px-8 py-4 rounded-2xl transition duration-200 text-center">
+                        Узнать наши услуги
+                    </a>
+                </div>
+            </div>
+
+            <!-- UZ -->
+            <div data-lang="uz" class="hidden">
+                <div class="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full text-blue-400 text-sm font-semibold mb-8 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Angrendagi ishonchli IT yordamchingiz</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
+                    Kompyuter va xavfsizlik <br><span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent">bo‘yicha barcha muammolarni hal qilamiz</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Uyda va ofisda: internetni sozlaymiz, texnikani ta'mirlaymiz, telefondan ko'rinadigan qilib videokuzatuv kameralarini o'rnatamiz. Tez, tushunarli va kafolatli.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contacts" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-600/25 transition duration-200 text-center">
+                        Usta chaqirish / Bog'lanish
+                    </a>
+                    <a href="#services" class="bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-200 font-bold px-8 py-4 rounded-2xl transition duration-200 text-center">
+                        Xizmatlar bilan tanishish
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Для кого наши услуги (For Whom) -->
+    <section id="for-whom" class="py-20 bg-slate-900/40 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white mb-4" data-lang="ru">Для кого мы работаем?</h2>
+                <h2 class="text-3xl font-extrabold tracking-tight text-white mb-4 hidden" data-lang="uz">Kimlar uchun xizmat ko‘rsatamiz?</h2>
+                <p class="text-slate-400" data-lang="ru">Помогаем как обычным людям, так и крупным организациям</p>
+                <p class="text-slate-400 hidden" data-lang="uz">Oddiy fuqarolarga ham, yirik tashkilotlarga ham yordam beramiz</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Физлица -->
+                <div class="bg-slate-900/80 border border-slate-800 p-8 rounded-3xl" data-aos="fade-right" data-aos-duration="800">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-house-user"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3" data-lang="ru">Для частных лиц (домов и квартир)</h3>
+                    <h3 class="text-2xl font-bold text-white mb-3 hidden" data-lang="uz">Jismoniy shaxslar uchun (uy va xonadonlar)</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed" data-lang="ru">
+                        Если у вас дома завис компьютер, не работает интернет, нужно настроить Wi-Fi роутер, установить камеры во дворе или починить ноутбук ребенка для учебы — мы приедем и поможем быстро и недорого.
+                    </p>
+                    <p class="text-slate-400 mb-6 leading-relaxed hidden" data-lang="uz">
+                        Agar uyingizda kompyuter qotib qolsa, internet ishlamasa, Wi-Fi routerni sozlash, hovlingizga kamera o‘rnatish yoki bolangizning noutbugini to‘g‘rilash kerak bo‘lsa — tez va hamyonbop narxda yordam beramiz.
+                    </p>
+                </div>
+
+                <!-- Юрлица -->
+                <div class="bg-slate-900/80 border border-slate-800 p-8 rounded-3xl" data-aos="fade-left" data-aos-duration="800">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3" data-lang="ru">Для бизнеса и предприятий</h3>
+                    <h3 class="text-2xl font-bold text-white mb-3 hidden" data-lang="uz">Biznes va korxonalar uchun</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed" data-lang="ru">
+                        Офисы, магазины, склады и заводы. Полное IT-обслуживание (чтобы не нанимать дорогого штатного системного администратора), настройка серверов, локальных сетей и систем безопасности под ключ.
+                    </p>
+                    <p class="text-slate-400 mb-6 leading-relaxed hidden" data-lang="uz">
+                        Ofislar, do‘konlar, omborlar va zavodlar. To‘liq IT-xizmat ko‘rsatish (doimiy shtatda sysadmin saqlash shart emas), serverlar, lokal tarmoqlar va xavfsizlik tizimlarini o‘rnatish.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clear Services Section -->
+    <section id="services" class="py-24 bg-[#0D1322]/60 relative border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white mb-4" data-lang="ru">Наши понятные услуги</h2>
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white mb-4 hidden" data-lang="uz">Bizning tushunarli xizmatlarimiz</h2>
+                <p class="text-slate-400" data-lang="ru">Всё, что связано с компьютерами, интернетом и камерами — делаем мы</p>
+                <p class="text-slate-400 hidden" data-lang="uz">Kompyuter, internet va kameralarga oid barcha ishlar — bizning vazifamiz</p>
+                <div class="w-16 h-1.5 bg-blue-600 mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Услуга 1 -->
+                <div class="bg-slate-900/90 border border-slate-800 p-8 rounded-3xl hover:border-blue-500/50 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-lang="ru">Ремонт и настройка техники</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 hidden" data-lang="uz">Texnikani ta'mirlash va sozlash</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-lang="ru">
+                        Чиним компьютеры, ноутбуки, настраиваем принтеры, устанавливаем программы, лечим от вирусов и заправляем картриджи.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed hidden" data-lang="uz">
+                        Kompyuter va noutbuklarni tuzatamiz, printerlarni ulaymiz, dasturlar o‘rnatamiz, viruslardan tozalaymiz va kartrij to‘ldiramiz.
+                    </p>
+                </div>
+
+                <!-- Услуга 2 -->
+                <div class="bg-slate-900/90 border border-slate-800 p-8 rounded-3xl hover:border-blue-500/50 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-lang="ru">Интернет, Wi-Fi и Сети</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 hidden" data-lang="uz">Internet, Wi-Fi va Tarmoqlar</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-lang="ru">
+                        Прокладываем интернет-кабели, настраиваем мощный Wi-Fi без «мертвых зон» дома или в большом офисе, объединяем компьютеры в единую сеть.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed hidden" data-lang="uz">
+                        Internet kabellarini tortamiz, uy yoki katta ofisda kuchli Wi-Fi zona qilamiz, kompyuterlarni yagona tarmoqqa ulaymiz.
+                    </p>
+                </div>
+
+                <!-- Услуга 3 -->
+                <div class="bg-slate-900/90 border border-slate-800 p-8 rounded-3xl hover:border-blue-500/50 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-lang="ru">Видеонаблюдение</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 hidden" data-lang="uz">Videokuzatuv tizimlari</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-lang="ru">
+                        Устанавливаем камеры для дома, магазина или склада. Вы сможете смотреть за происходящим прямо с экрана своего смартфона 24/7.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed hidden" data-lang="uz">
+                        Uy, do‘kon yoki ombor uchun kameralar o‘rnatamiz. Siz istalgan vaqtda o‘z telefoningiz orqali kuzatib turishingiz mumkin (24/7).
+                    </p>
+                </div>
+
+                <!-- Услуга 4 -->
+                <div class="bg-slate-900/90 border border-slate-800 p-8 rounded-3xl hover:border-blue-500/50 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-lang="ru">Серверы и защита данных</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 hidden" data-lang="uz">Serverlar va ma’lumotlarni himoya qilish</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-lang="ru">
+                        Настраиваем рабочие серверы для предприятий, настраиваем автоматическое сохранение (Backup) важной бухгалтерии и документов.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed hidden" data-lang="uz">
+                        Korxonalar uchun ishchi serverlarni sozlaymiz, muhim hujjatlar va buxgalteriya ma'lumotlarini avtomatik saqlashni (Backup) yo'lga qo'yamiz.
+                    </p>
+                </div>
+
+                <!-- Услуга 5 -->
+                <div class="bg-slate-900/90 border border-slate-800 p-8 rounded-3xl hover:border-blue-500/50 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-lang="ru">Системы доступа (СКУД)</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 hidden" data-lang="uz">Kirishni nazorat qilish (SKUD)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-lang="ru">
+                        Установка электронных замков, турникетов и шлагбаумов для контроля входа сотрудников и посетителей на объект.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed hidden" data-lang="uz">
+                        Obyektga kirishni nazorat qilish uchun elektron qulflar, turniketlar va shlagbaumlar o'rnatamiz.
+                    </p>
+                </div>
+
+                <!-- Услуга 6 -->
+                <div class="bg-slate-900/90 border border-slate-800 p-8 rounded-3xl hover:border-blue-500/50 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-lang="ru">Абонентское IT-обслуживание</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 hidden" data-lang="uz">Abonentlik asosida IT-xizmat</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-lang="ru">
+                        Берем вашу компанию на полный технический контроль: решаем любые проблемы с техникой быстро и без перерывов в работе.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed hidden" data-lang="uz">
+                        Korxonangizni to'liq texnik nazoratga olamiz: texnikadagi barcha muammolarni ish faoliyatini to'xtatmasdan tezda hal qilamiz.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="advantages" class="py-24 bg-[#090D16] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white mb-4" data-lang="ru">Почему нам доверяют</h2>
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white mb-4 hidden" data-lang="uz">Nega bizga ishonishadi</h2>
+                <div class="w-16 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-blue-500 font-black text-2xl mb-4">01</div>
+                    <h3 class="font-bold text-lg text-white mb-2" data-lang="ru">Говорим просто</h3>
+                    <h3 class="font-bold text-lg text-white mb-2 hidden" data-lang="uz">Oddiy tilda tushuntiramiz</h3>
+                    <p class="text-slate-400 text-sm" data-lang="ru">Никаких сложных заумных терминов — объясним всё на понятном языке.</p>
+                    <p class="text-slate-400 text-sm hidden" data-lang="uz">Murakkab terminlarsiz — hammasini tushunarli qilib tushuntiramiz.</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-blue-500 font-black text-2xl mb-4">02</div>
+                    <h3 class="font-bold text-lg text-white mb-2" data-lang="ru">Быстрый выезд</h3>
+                    <h3 class="font-bold text-lg text-white mb-2 hidden" data-lang="uz">Tezkor yetib kelish</h3>
+                    <p class="text-slate-400 text-sm" data-lang="ru">Оперативно приезжаем на объект по всему Ангрену.</p>
+                    <p class="text-slate-400 text-sm hidden" data-lang="uz">Angren bo‘ylab chaqiruvga zudlik bilan yetib boramiz.</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-blue-500 font-black text-2xl mb-4">03</div>
+                    <h3 class="font-bold text-lg text-white mb-2" data-lang="ru">Честные цены</h3>
+                    <h3 class="font-bold text-lg text-white mb-2 hidden" data-lang="uz">Halol narxlar</h3>
+                    <p class="text-slate-400 text-sm" data-lang="ru">Сначала озвучиваем стоимость, согласовыем и только потом делаем.</p>
+                    <p class="text-slate-400 text-sm hidden" data-lang="uz">Avval narxini kelishib olamiz, keyin ishga kirishamiz.</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-blue-500 font-black text-2xl mb-4">04</div>
+                    <h3 class="font-bold text-lg text-white mb-2" data-lang="ru">Гарантия на работу</h3>
+                    <h3 class="font-bold text-lg text-white mb-2 hidden" data-lang="uz">Ishga kafolat</h3>
+                    <p class="text-slate-400 text-sm" data-lang="ru">Отвечаем за качество нашей работы и настройки.</p>
+                    <p class="text-slate-400 text-sm hidden" data-lang="uz">Bajarilgan ish va sozlamalar sifatiga to‘liq javob beramiz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="py-24 bg-gradient-to-b from-[#090D16] to-[#0D1322] border-t border-slate-800/60 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="zoom-in" data-aos-duration="800">
+            
+            <div data-lang="ru">
+                <span class="bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest">
+                    Свяжитесь с нами
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-6 mb-6">Нужна помощь с техникой или камерами?</h2>
+                <p class="text-slate-400 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Позвоните нам или напишите в Telegram. Консультация и выезд на бесплатный осмотр объекта — без проблем!
+                </p>
+            </div>
+
+            <div data-lang="uz" class="hidden">
+                <span class="bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest">
+                    Biz bilan bog‘laning
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-6 mb-6">Texnika yoki kameralar bo‘yicha yordam kerakmi?</h2>
+                <p class="text-slate-400 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Bizga qo‘ng‘iroq qiling yoki Telegramda yozing. Maslahat va obyektni bepul ko‘zdan kechirish — muammosiz!
+                </p>
+            </div>
+
+            <div class="bg-slate-900/90 border border-slate-800 p-8 sm:p-10 rounded-3xl shadow-2xl flex flex-col md:flex-row justify-around items-center gap-8 text-left">
+                <div>
+                    <div class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2" data-lang="ru">Телефоны:</div>
+                    <div class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2 hidden" data-lang="uz">Telefonlar:</div>
+                    <a href="tel:+998950120783" class="block text-lg font-bold text-white hover:text-blue-400 transition">+998 95 012 07 83</a>
+                    <a href="tel:+998901170083" class="block text-lg font-bold text-white hover:text-blue-400 transition">+998 99 887 00 83</a>
+                </div>
+                
+                <div class="h-12 w-px bg-slate-800 hidden md:block"></div>
+
+                <div>
+                    <div class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2" data-lang="ru">Telegram для заявок:</div>
+                    <div class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2 hidden" data-lang="uz">Murojaat uchun Telegram:</div>
+                    <a href="https://t.me/dilshod_dev" target="_blank" class="text-xl font-extrabold text-blue-400 hover:underline flex items-center space-x-2">
+                        <i class="fa-brands fa-telegram text-2xl"></i>
+                        <span>@dilshod_dev</span>
+                    </a>
+                </div>
+
+                <div class="h-12 w-px bg-slate-800 hidden md:block"></div>
+
+                <div>
+                    <div class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2" data-lang="ru">Город:</div>
+                    <div class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2 hidden" data-lang="uz">Shahar:</div>
+                    <span class="text-slate-200 font-bold block" data-lang="ru">г. Ангрен</span>
+                    <span class="text-slate-200 font-bold block hidden" data-lang="uz">Angren shahri</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#090D16] text-slate-500 py-10 border-t border-slate-800/80 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Step Up. <span data-lang="ru">Все права защищены.</span><span data-lang="uz" class="hidden">Barcha huquqlar himoyalangan.</span></p>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+    </script>
+</body>
+</html>
